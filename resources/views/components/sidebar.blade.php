@@ -13,6 +13,24 @@
         url="{{ route('admin.dashboard') }}"
         active="{{ request()->routeIs('admin.dashboard') ? ' active' : '' }}"
     />
+    <x-nav-link 
+        text="Warung" 
+        icon="tachometer-alt" 
+        url="{{ route('admin.warung') }}"
+        active="{{ request()->routeIs('admin.warung') ? ' active' : '' }}"
+    />
+    <x-nav-link 
+        text="Pembelian" 
+        icon="tachometer-alt" 
+        url="{{ route('admin.pembelian') }}"
+        active="{{ request()->routeIs('admin.pembelian') ? ' active' : '' }}"
+    />
+    <x-nav-link 
+        text="Harga" 
+        icon="tachometer-alt" 
+        url="{{ route('admin.harga') }}"
+        active="{{ request()->routeIs('admin.harga') ? ' active' : '' }}"
+    />
     
     <hr class="sidebar-divider mb-0">
 
