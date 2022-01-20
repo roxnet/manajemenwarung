@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\{DashboardController, UserController, RoleController};
+use App\Http\Controllers\{DashboardController, UserController, RoleController, 
+	WarungController, PembelianController, HargaController};
 
 Route::get('/', function () {
     return view('welcome');
@@ -13,6 +14,9 @@ Route::group([
 	'as' => 'admin.'
 ], function(){
 	Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+	Route::get('/warung', [WarungController::class, 'index'])->name('warung');
+	Route::get('/pembelian', [PembelianController::class, 'index'])->name('pembelian');
+	Route::get('/harga', [HargaController::class, 'index'])->name('harga');
 
 	Route::get('/logs', [DashboardController::class, 'activity_logs'])->name('logs');
 	Route::post('/logs/delete', [DashboardController::class, 'delete_logs'])->name('logs.delete');
