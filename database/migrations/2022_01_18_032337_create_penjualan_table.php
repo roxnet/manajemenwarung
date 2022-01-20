@@ -14,16 +14,21 @@ class CreatePenjualanTable extends Migration
     public function up()
     {
         Schema::create('penjualan', function (Blueprint $table) {
-            $table->increments('id');
-            $table->foreign('id_barang')->references('id')->on('barang');
-            $table->foreign('id_pelayan')->references('id')->on('pelayan');
-            $table->foreign('id_pembayaran')->references('id')->on('pembayaran');
-            $table->varchar('satuan');
+            $table->bigIncrements('id');
+            $table->unsignedBigInteger('id_barang')->nullable();
+            $table->unsignedInteger('id_pelayan')->nullable();
+            $table->unsignedBigInteger('id_pembayaran')->nullable();
+            $table->string('satuan');
             $table->date('tanggal');
             $table->integer('harga_barang');
             $table->integer('jml_beli');
             $table->integer('total_harga');
             $table->timestamps();
+
+            $table->foreign('id_barang')->references('id')->on('barang');
+            $table->foreign('id_pelayan')->references('id')->on('users');
+            $table->foreign('id_pembayaran')->references('id')->on('pembayaran');
+
         });
     }
 
