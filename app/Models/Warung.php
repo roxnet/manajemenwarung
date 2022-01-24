@@ -11,5 +11,9 @@ class Warung extends Model
 
     protected $table = 'warung';
     protected $primaryKey = 'id';
+<<<<<<< Updated upstream
     protected $guarded = [];
+=======
+    protected $fillable = ['nama_warung', 'alamat'];
+>>>>>>> Stashed changes
 }

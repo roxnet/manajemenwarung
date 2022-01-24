@@ -10,6 +10,7 @@ class Penjualan extends Model
     use HasFactory;
 
     protected $table = 'penjualan';
+<<<<<<< Updated upstream
     protected $primaryKey = 'id_penjualan';
     protected $guarded = [];
 
@@ -17,6 +18,11 @@ class Penjualan extends Model
     {
         return $this->hasOne(Member::class, 'id_member', 'id_member');
     }
+=======
+    protected $primaryKey = 'id';
+    protected $fillable = [  'id_barang', 'id_pelayan', 'id_pembayaran', 'satuan', 'tanggal', 'harga_barang', 'jml_beli', 'total_harga'
+];
+>>>>>>> Stashed changes
 
     public function user()
     {

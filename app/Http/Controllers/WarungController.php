@@ -18,6 +18,7 @@ class WarungController extends Controller
     */
     public function index()
     {
+<<<<<<< Updated upstream
         $warung = Warung::paginate(7);
         return view('admin.warung.warung',compact('warung'));
     }
@@ -100,5 +101,63 @@ class WarungController extends Controller
         $hasil = Warung::where('warung', 'LIKE', '%' . $query . '%')->paginate(7);
 
         return view('warung.result', compact('hasil', 'query'));
+=======
+
+        //Ambil data kategori dari database
+        $data = array(
+            'warung' => Warung::all()
+        );
+        //menampilkan view
+        return view('admin.warung.warung',$data);
+    }
+
+    //function menampilkan view tambah data
+    public function tambah()
+    {
+        return view('admin.warung.tambah');
+    }
+
+    public function store(Request $request)
+    {
+        //Simpan datab ke database    
+        Warung::create([
+            'nama_warung' => $request->nama_warung,
+            'alamat' => $request->alamat
+
+        ]);
+        
+        //lalu reireact ke route admin.warung dengan mengirim flashdata(session) berhasil tambah data untuk manampilkan alert succes tambah data
+        return redirect()->route('admin.warung')->with('status','Berhasil Menambah Kategori');
+    }
+
+    public function update($id,Request $request)
+    {
+        //ambil data sesuai id dari parameter
+        $warung = Warung::FindOrFail($id);
+        //lalu ambil apa aja yang mau diupdate
+        $warung->nama_warung = $request->nama_warung;
+        $warung->alamat = $request->alamat;
+
+        //lalu simpan perubahan
+        $warung->save();
+        return redirect()->route('admin.warung')->with('status','Berhasil Mengubah Kategori');
+    }
+
+    //function menampilkan form edit
+    public function edit($id)
+    {
+        $data = array(
+            'warung' => $warung = Warung::FindOrFail($id)
+        );
+        return view('admin.warung.edit',$data);
+    }
+
+    public function delete($id)
+    {
+        //hapus data sesuai id dari parameter
+        Warung::destroy($id);
+        
+        return redirect()->route('admin.warung')->with('status','Berhasil Mengahapus Kategori');
+>>>>>>> Stashed changes
     }
 }
