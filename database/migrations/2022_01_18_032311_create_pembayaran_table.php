@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePembelianTable extends Migration
+class CreatePembayaranTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,12 @@ class CreatePembelianTable extends Migration
      */
     public function up()
     {
-        Schema::create('pembelian', function (Blueprint $table) {
-            $table->increments('id');
-            $table->foreign('id_barang')->references('id')->on('barang');
-            $table->date('tanggal_beli');
-            $table->integer('jml_beli');
+        Schema::create('pembayaran', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->date('tanggal_bayar');
+            $table->integer('total_bayar');
+            $table->integer('total_uang');
+            $table->integer('uang_kembali');
             $table->timestamps();
         });
     }
@@ -29,6 +30,6 @@ class CreatePembelianTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('pembelian');
+        Schema::dropIfExists('pembayaran');
     }
 }

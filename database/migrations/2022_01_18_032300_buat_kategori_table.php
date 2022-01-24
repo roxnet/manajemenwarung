@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePembayaranTable extends Migration
+class BuatKategoriTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,9 @@ class CreatePembayaranTable extends Migration
      */
     public function up()
     {
-        Schema::create('pembayaran', function (Blueprint $table) {
-            $table->increments('id');
-            $table->date('tanggal_bayar');
-            $table->integer('total_bayar');
-            $table->integer('total_uang');
-            $table->integer('uang_kembali');
+        Schema::create('kategori', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->string('nama_kategori');
             $table->timestamps();
         });
     }
@@ -30,6 +27,6 @@ class CreatePembayaranTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('pembayaran');
+        Schema::dropIfExists('kategori');
     }
 }
