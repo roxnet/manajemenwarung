@@ -7,69 +7,72 @@ use Illuminate\Support\Facades\Hash;
 use Spatie\Activitylog\Models\Activity;
 use App\Http\Requests\SettingRequest;
 use Carbon\Carbon;
+use \App\Models\Warung;
 
 class WarungController extends Controller
 {
     /**
-    * Show warung
+    * Show Warung
     *
     * @return \Illuminate\Http\Response
     */
     public function index()
     {
-        $logs = Activity::where('causer_id', auth()->id())->latest()->paginate(5);
 
-        return view('admin.warung.warung', compact('logs'));
+        //Ambil data kategori dari database
+        $data = array(
+            'warung' => Warung::all()
+        );
+        //menampilkan view
+        return view('admin.warung.warung',$data);
     }
 
-    /**
-    * Show activity logs
-    *
-    * @return \Illuminate\Http\Response
-    */
-    public function activity_logs()
+    //function menampilkan view tambah data
+    public function tambah()
     {
-  
+        return view('admin.warung.tambah');
     }
 
-	/**
-	* Store settings into database
-	*
-	* @param $request
-    * @return \Illuminate\Http\Response
-	*/
-    public function settings_store(SettingRequest $request)
+    public function store(Request $request)
     {
-    
+        //Simpan datab ke database
+        Warung::create([
+            'nama_warung' => $request->nama_warung,
+            'alamat' => $request->alamat
+
+        ]);
+
+        //lalu reireact ke route admin.warung dengan mengirim flashdata(session) berhasil tambah data untuk manampilkan alert succes tambah data
+        return redirect()->route('admin.warung')->with('status','Berhasil Menambah Kategori');
     }
 
-    /**
-    * Update profile user
-    *
-    * @param $request
-    * @return \Illuminate\Http\Response
-    */
-    public function profile_update(Request $request)
+    public function update($id,Request $request)
     {
-        
+        //ambil data sesuai id dari parameter
+        $warung = Warung::FindOrFail($id);
+        //lalu ambil apa aja yang mau diupdate
+        $warung->nama_warung = $request->nama_warung;
+        $warung->alamat = $request->alamat;
+
+        //lalu simpan perubahan
+        $warung->save();
+        return redirect()->route('admin.warung')->with('status','Berhasil Mengubah Kategori');
     }
 
-    /**
-    * Store avatar images into database
-    *
-    * @param $request
-    * @return string
-    */
-    public function upload_avatar(Request $request)
+    //function menampilkan form edit
+    public function edit($id)
     {
-       
-        
+        $data = array(
+            'warung' => $warung = Warung::FindOrFail($id)
+        );
+        return view('admin.warung.edit',$data);
     }
 
-    public function delete_logs()
+    public function delete($id)
     {
-        $logs = Activity::where('created_at', '<=', Carbon::now()->subWeeks())->delete();
+        //hapus data sesuai id dari parameter
+        Warung::destroy($id);
 
-        return back()->with('success', $logs.' Logs successfully deleted!');
+        return redirect()->route('admin.warung')->with('status','Berhasil Mengahapus Kategori');
     }
 }
