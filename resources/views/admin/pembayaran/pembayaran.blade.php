@@ -1,42 +1,37 @@
 <x-app-layout>
     <x-slot name="title">
-        Harga
+        Pembayaran
     </x-slot>
 
     <div class="col text-right">
-        <a href="{{ route('admin.pembelian.tambah') }}" class="btn btn-primary">Tambah</a>
+        <a href="{{ route('admin.pembayaran.tambah') }}" class="btn btn-primary">Tambah</a>
     </div>
     <div class="table-responsive">
         <table class="table table-bordered table-hovered" id="table">
             <thead>
                 <tr align="center">
                     <th width="5%">ID</th>
-                    <th >Nama Barang</th>
-                    <th >Tanggal Beli</th>
-                    <th >Harga Ecer</th>
-                    <th >Harga Grosir</th>
-                    <th >Harga Jual</th>
-                    <th >Status</th>
+                    <th>Tanggal Bayar</th>
+                    <th>Total Bayar</th>
+                    <th>Total Uang</th>
+                    <th>Uang Kembali</th>
                     <th width="15%">Aksi</th>
                 </tr>
             </thead>
             <tbody>
-                @foreach($harga as $h)
+                @foreach($pembayaran as $b)
                 <tr align="center">
-                    <td >{{ $h->id }}</td>
-                    <td >{{ $h->nama_barang }}</td>
-                    <td >{{ $h->tanggal_beli}}</td>
-                    <td >{{ $h->harga_ecer }}</td>
-                    <td >{{ $h->harga_grosir }}</td>
-                    <td >{{ $h->harga_jual }}</td>
-                    <td >{{ $h->status}}</td>
-
+                    <td>{{ $b->id }}</td>
+                    <td>{{ $b->tanggal_bayar }}</td>
+                    <td>{{ $b->total_bayar }}</td>
+                    <td>{{ $b->total_uang}}</td>
+                    <td>{{ $b->uang_kembali }}</td>
                     <td >
                         <div class="btn-group" role="group" aria-label="Basic example">
-                            <a href="{{ route('admin.harga.edit',[$h->id]) }}" class="btn btn-warning btn-sm">Edit
+                            <a href="{{ route('admin.pembayaran.edit',[$b->id]) }}" class="btn btn-warning btn-sm">Edit
                                 <i class="mdi mdi-tooltip-edit"></i>
                             </a>
-                            <a href="{{ route('admin.harga.delete',[$h->id]) }}"
+                            <a href="{{ route('admin.pembayaran.delete',[$b->id]) }}"
                                 onclick="return confirm('Yakin Hapus data')" class="btn btn-danger btn-sm">Hapus
                                 <i class="mdi mdi-delete-forever"></i>
                             </a>
