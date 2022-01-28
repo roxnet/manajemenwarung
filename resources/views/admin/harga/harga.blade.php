@@ -3,6 +3,7 @@
         Harga
     </x-slot>
 
+
     @if(session()->has('success'))
     <x-alert type="success" message="{{ session()->get('success') }}" />
     @endif
@@ -13,6 +14,12 @@
                 <i class="fas fa-plus"></i>
             </a>
         </x-slot>
+
+
+    <div class="col text-right">
+        <a href="{{ route('admin.pembelian.tambah') }}" class="btn btn-primary">Tambah</a>
+    </div>
+    <div class="table-responsive">
 
         <table class="table table-bordered table-hovered" id="table">
             <thead>

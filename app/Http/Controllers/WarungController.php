@@ -35,13 +35,13 @@ class WarungController extends Controller
 
     public function store(Request $request)
     {
-        //Simpan datab ke database    
+        //Simpan datab ke database
         Warung::create([
             'nama_warung' => $request->nama_warung,
             'alamat' => $request->alamat
 
         ]);
-        
+
         //lalu reireact ke route admin.warung dengan mengirim flashdata(session) berhasil tambah data untuk manampilkan alert succes tambah data
         return redirect()->route("admin.warung")
         ->with('success','Warung created successfully');
@@ -74,7 +74,13 @@ class WarungController extends Controller
     {
         //hapus data sesuai id dari parameter
         Warung::destroy($id);
+
         
         return redirect()->route('admin.warung')
                         ->with('success','Warung deleted successfully');    }
-}
+
+
+     
+    }
+
+
