@@ -74,6 +74,7 @@ class WarungController extends Controller
     {
         //hapus data sesuai id dari parameter
         Warung::destroy($id);
+<<<<<<< Updated upstream
         
         return redirect()->route('admin.warung')
                         ->with('success','Warung deleted successfully');    }
@@ -81,3 +82,9 @@ class WarungController extends Controller
 
      
     }
+=======
+
+        return redirect()->route('admin.warung')
+                        ->with('success','Warung deleted successfully');    }
+}
+>>>>>>> Stashed changes

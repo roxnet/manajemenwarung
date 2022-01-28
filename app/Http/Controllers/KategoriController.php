@@ -7,10 +7,11 @@ use Illuminate\Support\Facades\Hash;
 use Spatie\Activitylog\Models\Activity;
 use App\Http\Requests\SettingRequest;
 use Carbon\Carbon;
-use App\Models\Pembayaran;
+use App\Models\Barang;
+use App\Models\Kategori;
 use DB;
 
-class PembayaranController extends Controller
+class KategoriController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -19,9 +20,9 @@ class PembayaranController extends Controller
      */
     public function index()
     {
-        $pembayaran = Pembayaran::all();
+        $kategori = Kategori::all();
 
-        return view('admin.pembayaran.pembayaran', compact('pembayaran'));
+        return view('admin.kategori.kategori',compact ('kategori'));
     }
 
     /**
@@ -31,9 +32,9 @@ class PembayaranController extends Controller
      */
     public function create()
     {
-        $pembayaran = Pembayaran::all();
+        $kategori = Kategori::all();
 
-        return view('admin.pembayaran.create', compact('pembayaran'));
+        return view('admin.kategori.create', compact('kategori'));
     }
 
     /**
@@ -44,14 +45,13 @@ class PembayaranController extends Controller
      */
     public function store(Request $request)
     {
-        Pembayaran::create([
-            'tanggal_bayar' => $request->tanggal_bayar,
-            'total_bayar' => $request->total_bayar,
-            'total_uang' => $request->total_uang,
-            'uang_kembali' => $request->uang_kembali
+        $this->validate($request, [
+            'nama_kategori' => 'required',
         ]);
 
-        return redirect()->route('admin.pembayaran')->with('success','Data Berhasil diubah');
+        $kategori = Kategori::create(['nama_kategori' => $request->nama_kategori]);
+
+        return redirect()->route('admin.kategori')->with('success', 'Data Berhasil Ditambahkan');
     }
 
     /**
@@ -73,11 +73,11 @@ class PembayaranController extends Controller
      */
     public function edit($id)
     {
+        $kategori = Kategori::find($id);
+        $barang = Barang::all();
+        $data = Kategori::all();
 
-        $pembayaran = Pembayaran::find($id);
-        $data = Pembayaran::all();
-
-        return view('admin.pembayaran.edit', compact('pembayaran', 'data'));
+        return view('admin.kategori.edit', compact('kategori', 'barang', 'data'));
     }
 
     /**
@@ -90,17 +90,12 @@ class PembayaranController extends Controller
     public function update(Request $request, $id)
     {
         $this->validate($request, [
-            'tanggal_bayar' => 'required',
-            'total_bayar' => 'required',
-            'total_uang' => 'required',
-            'uang_kembali' => 'required'
+            'nama_kategori' => 'required'
         ]);
 
-        $input = $request->all();
-        $pembayaran = Pembayaran::find($id);
-        $pembayaran->update($input);
-
-        return redirect()->route('admin.pembayaran')->with('success', 'Data Berhasil diubah');
+        $input = Kategori::all();
+        $kategori = Kategori::find($id);
+        $kategori->update($input);
     }
 
     /**
@@ -111,8 +106,8 @@ class PembayaranController extends Controller
      */
     public function destroy($id)
     {
-        Pembayaran::find($id)->delete();
+        Kategori::find($id)->delete();
 
-        return redirect()->route('admin.pembayaran')->with('success', 'Data berhasil dihapus');
+        return redirect()->route('admin.kategori')->with('success', 'Data berhasil dihapus');
     }
 }

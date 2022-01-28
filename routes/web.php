@@ -2,7 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\{DashboardController, UserController, RoleController,
-	WarungController, PembelianController, HargaController, BarangController, PembayaranController};
+	WarungController, PembelianController, HargaController, BarangController,
+    PembayaranController, KategoriController};
 
 Route::get('/', function () {
     return view('welcome');
@@ -76,6 +77,7 @@ Route::group([
     Route::post('/barang/update/{id}', [BarangController::class, 'update'])->name('barang.update');
     Route::get('/barang/edit/{id}', [BarangController::class, 'edit'])->name('barang.edit');
     Route::get('/barang/delete/{id}', [BarangController::class, 'destroy'])->name('barang.delete');
+    Route::get('/barang/cari', [BarangController::class, 'show'])->name('barang.cari');
 
     //Pembayaran
     Route::get('/pembayaran', [PembayaranController::class, 'index'])->name('pembayaran');
@@ -84,6 +86,14 @@ Route::group([
     Route::post('/pembayaran/update/{id}', [PembayaranController::class, 'update'])->name('pembayaran.update');
     Route::get('/pembayaran/edit/{id}', [PembayaranController::class, 'edit'])->name('pembayaran.edit');
     Route::get('/pembayaran/delete/{id}', [PembayaranController::class, 'destroy'])->name('pembayaran.delete');
+
+    //Kategori
+    Route::get('/kategori', [KategoriController::class, 'index'])->name('kategori');
+    Route::get('/kategori/tambah', [KategoriController::class, 'create'])->name('kategori.tambah');
+    Route::post('/kategori/store', [KategoriController::class, 'store'])->name('kategori.store');
+    Route::post('/kategori/update/{id}', [KategoriController::class, 'update'])->name('kategori.update');
+    Route::get('/kategori/edit/{id}', [KategoriController::class, 'edit'])->name('kategori.edit');
+    Route::get('/kategori/delete/{id}', [KategoriController::class, 'destroy'])->name('kategori.delete');
 });
 
 

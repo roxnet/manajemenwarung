@@ -28,12 +28,12 @@
         </div>
         <div class="form-group">
             <label for="exampleSelect">Tanggal Beli</label>
-            <input class="form-control" placeholder="Tanggal Beli" name="tanggal_beli" type="date" />
+            <input class="form-control" placeholder="Tanggal Beli" name="tanggal_beli" type="date" required>
         </div>
 
         <div class="form-group">
             <label for="exampleSelect">Jumlah Beli</label>
-            <input class="form-control" placeholder="masukan jumlah beli" name="jml_beli" type="text" />
+            <input class="form-control" placeholder="masukan jumlah beli" name="jml_beli" type="text" required>
         </div>
 
         <div class="text-right">

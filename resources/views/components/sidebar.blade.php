@@ -6,6 +6,10 @@
         <div class="sidebar-brand-text mx-3">RuangAdmin</div>
     </a>
     <hr class="sidebar-divider my-0">
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
     <x-nav-link text="Dashboard" icon="tachometer-alt" url="{{ route('admin.dashboard') }}"
         active="{{ request()->routeIs('admin.dashboard') ? ' active' : '' }}" />
     <x-nav-link text="Warung" icon="fas fa-store" url="{{ route('admin.warung') }}"
@@ -25,12 +29,12 @@
         show
         @endif">
             <div class="bg-white py-2 collapse-inner rounded">
-                <a class="collapse-item{{ request()->is('admin/warung') ? ' active' : '' }}"
-                    href="{{ route('admin.warung') }}">
+                <a class="collapse-item{{ request()->is('admin/barang') ? ' active' : '' }}"
+                    href="{{ route('admin.barang') }}">
                     <i class="fas fa-piggy-bank"></i>
                     <span>Barang</span></a>
-                <a class="collapse-item{{ request()->is('admin/warung') ? ' active' : '' }}"
-                    href="{{ route('admin.warung') }}">
+                <a class="collapse-item{{ request()->is('admin/kategori') ? ' active' : '' }}"
+                    href="{{ route('admin.kategori') }}">
                     <i class="fas fa-tags"></i>
                     <span> Kategori</span></a>
             </div>
@@ -64,8 +68,8 @@
                     href="{{ route('admin.harga') }}">
                     <i class="fas fa-money-bill"></i>
                     <span> Harga</span></a>
-                <a class="collapse-item{{ request()->is('admin/warung') ? ' active' : '' }}"
-                    href="{{ route('admin.warung') }}">
+                <a class="collapse-item{{ request()->is('admin/pembayaran') ? ' active' : '' }}"
+                    href="{{ route('admin.pembayaran') }}">
                     <i class="fas fa-cash-register"></i>
                     <span>Pembayaran</span></a>
             </div>

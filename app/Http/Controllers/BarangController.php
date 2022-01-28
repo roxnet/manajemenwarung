@@ -67,9 +67,17 @@ class BarangController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Request $request)
     {
-        //
+        $cari = $request->cari;
+
+        $barang = DB::table('barang')
+            ->join('kategori', 'kategori.id', '=', 'barang.id_kategori')
+            ->where('barang.id', '=', $cari)
+            ->select('barang.*', 'kategori.nama_kategori')
+            ->paginate();
+
+        return view('admin.barang.barang', ['barang' =>$barang]);
     }
 
     /**

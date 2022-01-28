@@ -3,9 +3,22 @@
         Barang
     </x-slot>
 
-    <div class="col text-right">
-        <a href="{{ route('admin.barang.tambah') }}" class="btn btn-primary">Tambah</a>
-    </div>
+        <div class="row">
+            <div class="col">
+                <nav class="navbar navbar-light bg-light">
+                    <form class="form-inline" method="GET" action="{{ route('admin.barang.cari') }}">
+                      <input class="form-control mr-sm-2" type="search" name="cari" placeholder="Search" aria-label="Search" value="{{ old('id') }}">
+                      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                      <a class="btn btn-outline-primary" href="{{ route('admin.barang') }}">Kembali</a>
+                    </form>
+                </nav>
+            </div>
+        </div>
+
+        <div class="col text-right">
+            <a href="{{ route('admin.barang.tambah') }}" class="btn btn-primary">Tambah</a>
+        </div>
+
     <div class="table-responsive">
         <table class="table table-bordered table-hovered" id="table">
             <thead>
