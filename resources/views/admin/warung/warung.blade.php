@@ -48,17 +48,7 @@
     	</x-card>
 
 
-<<<<<<< HEAD
-
-
-
     <x-slot name="script">
         <script src="{{ asset('dist/js/demo/chart-area-demo.js') }}"></script>
     </x-slot>
 </x-app-layout>
-=======
-        <x-slot name="script">
-            <script src="{{ asset('dist/js/demo/chart-area-demo.js') }}"></script>
-        </x-slot>
-</x-app-layout>
->>>>>>> 760fe940eb2bf42ced1cbf461b1c1efde25a31bb

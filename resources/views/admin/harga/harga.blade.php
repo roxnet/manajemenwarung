@@ -2,13 +2,6 @@
     <x-slot name="title">
         Harga
     </x-slot>
-
-<<<<<<< HEAD
-    <div class="col text-right">
-        <a href="{{ route('admin.pembelian.tambah') }}" class="btn btn-primary">Tambah</a>
-    </div>
-    <div class="table-responsive">
-=======
     @if(session()->has('success'))
     <x-alert type="success" message="{{ session()->get('success') }}" />
     @endif
@@ -20,7 +13,11 @@
             </a>
         </x-slot>
 
->>>>>>> 760fe940eb2bf42ced1cbf461b1c1efde25a31bb
+    <div class="col text-right">
+        <a href="{{ route('admin.pembelian.tambah') }}" class="btn btn-primary">Tambah</a>
+    </div>
+    <div class="table-responsive">
+
         <table class="table table-bordered table-hovered" id="table">
             <thead>
                 <tr align="center">

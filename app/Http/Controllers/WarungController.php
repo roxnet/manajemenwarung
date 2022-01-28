@@ -74,13 +74,10 @@ class WarungController extends Controller
     {
         //hapus data sesuai id dari parameter
         Warung::destroy($id);
-<<<<<<< HEAD
-
-        return redirect()->route('admin.warung')->with('status','Berhasil Mengahapus Kategori');
-    }
-=======
         
         return redirect()->route('admin.warung')
                         ->with('success','Warung deleted successfully');    }
->>>>>>> 760fe940eb2bf42ced1cbf461b1c1efde25a31bb
-}
+
+
+     
+    }
