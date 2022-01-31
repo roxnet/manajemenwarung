@@ -2,10 +2,6 @@
     <x-slot name="title">
         Harga
     </x-slot>
-<<<<<<< Updated upstream
-=======
-
->>>>>>> Stashed changes
     @if(session()->has('success'))
     <x-alert type="success" message="{{ session()->get('success') }}" />
     @endif
@@ -17,14 +13,6 @@
             </a>
         </x-slot>
 
-<<<<<<< Updated upstream
-    <div class="col text-right">
-        <a href="{{ route('admin.pembelian.tambah') }}" class="btn btn-primary">Tambah</a>
-    </div>
-    <div class="table-responsive">
-
-=======
->>>>>>> Stashed changes
         <table class="table table-bordered table-hovered" id="table">
             <thead>
                 <tr align="center">

@@ -60,9 +60,15 @@ class PembayaranController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Request $request)
     {
-        //
+        $cari = $request->cari;
+
+        $pembayaran = DB::table('pembayaran')
+            ->where('tanggal_bayar', '=', $cari)
+            ->get();
+
+        return view('admin.pembayaran.pembayaran', ['pembayaran' =>$pembayaran]);
     }
 
     /**

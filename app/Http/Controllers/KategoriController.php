@@ -60,9 +60,15 @@ class KategoriController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Request $request)
     {
-        //
+        $cari = $request->cari;
+
+        $kategori = DB::table('kategori')
+            ->where('id', '=', $cari)
+            ->get();
+
+        return view('admin.kategori.kategori', ['kategori' =>$kategori]);
     }
 
     /**

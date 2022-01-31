@@ -3,20 +3,28 @@
         Barang
     </x-slot>
 
+    <x-card>
+        <x-slot name="title">All Barang</x-slot>
+        <x-slot name="option">
+            <a href="{{ route('admin.barang.tambah') }}" class="btn btn-success">
+                <i class="fas fa-plus"></i>
+            </a>
+        </x-slot>
         <div class="row">
             <div class="col">
                 <nav class="navbar navbar-light bg-light">
                     <form class="form-inline" method="GET" action="{{ route('admin.barang.cari') }}">
-                      <input class="form-control mr-sm-2" type="search" name="cari" placeholder="Search" aria-label="Search" value="{{ old('id') }}">
+                        <select name="cari" class="form-control">
+                            <option value="" selected disabled>==Pilih Kategori==</option>
+                            @foreach ($kategori as $k)
+                                <option value="{{ $k->id }}">{{ $k->id }}--{{ $k->nama_kategori }}</option>
+                            @endforeach
+                        </select>
                       <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-                      <a class="btn btn-outline-primary" href="{{ route('admin.barang') }}">Kembali</a>
+                      <a class="btn btn-outline-primary" href="{{ route('admin.barang') }}">Reset</a>
                     </form>
                 </nav>
             </div>
-        </div>
-
-        <div class="col text-right">
-            <a href="{{ route('admin.barang.tambah') }}" class="btn btn-primary">Tambah</a>
         </div>
 
     <div class="table-responsive">
@@ -63,6 +71,8 @@
             </tbody>
         </table>
     </div>
+
+</x-card>
 
 
 

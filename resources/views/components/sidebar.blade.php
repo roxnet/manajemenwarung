@@ -6,10 +6,6 @@
         <div class="sidebar-brand-text mx-3">RuangAdmin</div>
     </a>
     <hr class="sidebar-divider my-0">
-<<<<<<< Updated upstream
-=======
-
->>>>>>> Stashed changes
     <x-nav-link text="Dashboard" icon="tachometer-alt" url="{{ route('admin.dashboard') }}"
         active="{{ request()->routeIs('admin.dashboard') ? ' active' : '' }}" />
     <x-nav-link text="Warung" icon="fas fa-store" url="{{ route('admin.warung') }}"
@@ -25,7 +21,7 @@
             <span>Kelola Barang</span>
         </a>
         <div id="collapseForm" class="collapse
-        @if (request()->is('admin/warung') || request()->is('admin/warung'))
+        @if (request()->is('admin/barang') || request()->is('admin/kategori'))
         show
         @endif">
             <div class="bg-white py-2 collapse-inner rounded">
@@ -52,7 +48,7 @@
             <span>Transaksi</span>
         </a>
         <div id="collapse1" class="collapse
-        @if (request()->is('admin/warung') || request()->is('admin/warung'))
+        @if (request()->is('admin/pembelian') || request()->is('admin/pembelian'))
         show
         @endif"aria-labelledby="headingForm" data-parent="#accordionSidebar">
             <div class="collapse-inner rounded">
@@ -60,8 +56,8 @@
                     href="{{ route('admin.pembelian') }}">
                     <i class="fas fa-shopping-cart"></i>
                     <span>Pembelian</span></a>
-                <a class="collapse-item{{ request()->is('admin/warung') ? ' active' : '' }}"
-                    href="{{ route('admin.warung') }}">
+                <a class="collapse-item{{ request()->is('admin/pembelian') ? ' active' : '' }}"
+                    href="{{ route('admin.pembelian') }}">
                     <i class="fas fa-shopping-cart"></i>
                     <span>Penjualan</span></a>
                 <a class="collapse-item{{ request()->is('admin/harga') ? ' active' : '' }}"

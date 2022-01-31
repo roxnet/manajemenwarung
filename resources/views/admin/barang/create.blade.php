@@ -26,7 +26,7 @@
                 <div class="form-group">
                     <label for="exampleInputUsername1">Satuan</label>
                     <select name="satuan" id="satuan" class="form-control">
-                        <option value=""disabled>Pilih Satuan</option>
+                        <option value="" selected disabled>==Pilih Satuan==</option>
                         <option value="Kg">Kg</option>
                         <option value="Pcs">Pcs</option>
                         <option value="Liter">Liter</option>
@@ -44,7 +44,7 @@
                 <div class="form-group">
                     <label for="exampleInputUsername1">Kategori</label>
                     <select name="id_kategori" id="id_kategori" class="form-control">
-                        <option value="" disabled>Pilih Kategori</option>
+                        <option value="" selected disabled>==Pilih Kategori==</option>
                         @foreach ($kategori as $k)
                             <option value="{{ $k->id }}">{{ $k->id }}-{{ $k->nama_kategori }}</option>
                         @endforeach

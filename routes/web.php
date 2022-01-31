@@ -86,6 +86,7 @@ Route::group([
     Route::post('/pembayaran/update/{id}', [PembayaranController::class, 'update'])->name('pembayaran.update');
     Route::get('/pembayaran/edit/{id}', [PembayaranController::class, 'edit'])->name('pembayaran.edit');
     Route::get('/pembayaran/delete/{id}', [PembayaranController::class, 'destroy'])->name('pembayaran.delete');
+    Route::get('/pembayaran/cari', [PembayaranController::class, 'show'])->name('pembayaran.cari');
 
     //Kategori
     Route::get('/kategori', [KategoriController::class, 'index'])->name('kategori');
@@ -94,6 +95,7 @@ Route::group([
     Route::post('/kategori/update/{id}', [KategoriController::class, 'update'])->name('kategori.update');
     Route::get('/kategori/edit/{id}', [KategoriController::class, 'edit'])->name('kategori.edit');
     Route::get('/kategori/delete/{id}', [KategoriController::class, 'destroy'])->name('kategori.delete');
+    Route::get('/kategori/cari', [KategoriController::class, 'show'])->name('kategori.cari');
 });
 
 
