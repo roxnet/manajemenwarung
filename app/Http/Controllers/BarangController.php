@@ -25,7 +25,9 @@ class BarangController extends Controller
             ->select('barang.*', 'kategori.nama_kategori')
             ->get();
 
-  return view('admin.barang.barang',['barang'=>$barang]);
+        $kategori = Kategori::all();
+
+  return view('admin.barang.barang', compact('barang', 'kategori'));
     }
 
     /**
@@ -67,9 +69,19 @@ class BarangController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Request $request)
     {
-        //
+        $cari = $request->cari;
+
+        $kategori = Kategori::all();
+
+        $sbarang = DB::table('barang')
+            ->join('kategori', 'kategori.id', '=', 'barang.id_kategori')
+            ->where('kategori.id', '=', $cari)
+            ->select('barang.*', 'kategori.nama_kategori')
+            ->get();
+
+        return view('admin.barang.barang', ['barang' => $sbarang], ['kategori' => $kategori]);
     }
 
     /**

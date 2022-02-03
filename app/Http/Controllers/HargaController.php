@@ -27,18 +27,18 @@ class HargaController extends Controller
             ->join('pembelian', 'harga.id_pembelian', '=', 'pembelian.id')
             ->select('harga.*', 'barang.nama_barang', 'pembelian.tanggal_beli')
             ->get();
-  
+
   return view('admin.harga.harga',['harga'=>$harga]);
     }
 
     public function create()
-    { 
+    {
         $harga = Harga::all();
         $barang = Barang::all();
         $pembelian = Pembelian::all();
         return view ('admin.harga.create',compact('barang'));
     }
-    
+
     public function store(Request $request)
     {
         $request->validate([
@@ -48,13 +48,13 @@ class HargaController extends Controller
             'Harga Jual' => 'required',
             'Status' => 'required'
         ]);
-        
+
         Harga::create($request->all());
-      
+
         return redirect()->route('admin.harga')
                         ->with('success','Harga created successfully');
     }
-    
+
     public function edit($id)
     {
         $harga = Harga::find($id);
@@ -63,7 +63,7 @@ class HargaController extends Controller
 
         return view('admin.harga.edit',compact('harga','barang','pembelian'));
     }
-    
+
     public function update(Request $request, $id)
     {
         $request->validate([
@@ -73,13 +73,13 @@ class HargaController extends Controller
         ]);
         $input=$request->all();
         $pembelian = Pembelian::find($id);
-        $pembelian ->update {$input};
-      
-    
+        $pembelian ->update ($input);
+
+
         return redirect()->route('admin.pembelian')
                         ->with('success','Pembelian updated successfully');
     }
-    
+
     public function delete($id)
     {
         Pembelian::find($id)->delete();

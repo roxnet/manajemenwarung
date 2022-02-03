@@ -17,16 +17,16 @@
                 @csrf
                 <div class="form-group">
                     <label for="exampleInputUsername1">Kode Barang</label>
-                    <input type="text" class="form-control" name="kd_barang" placeholder="Masukkan Kode Barang">
+                    <input type="text" class="form-control" name="kd_barang" placeholder="Masukkan Kode Barang" required>
                 </div>
                 <div class="form-group">
                     <label for="exampleInputUsername1">Nama Barang</label>
-                    <input type="text" class="form-control" name="nama_barang" placeholder="Masukkan Nama Barang">
+                    <input type="text" class="form-control" name="nama_barang" placeholder="Masukkan Nama Barang" required>
                 </div>
                 <div class="form-group">
                     <label for="exampleInputUsername1">Satuan</label>
                     <select name="satuan" id="satuan" class="form-control">
-                        <option value=""disabled>Pilih Satuan</option>
+                        <option value="" selected disabled>==Pilih Satuan==</option>
                         <option value="Kg">Kg</option>
                         <option value="Pcs">Pcs</option>
                         <option value="Liter">Liter</option>
@@ -38,12 +38,13 @@
                         <option value="Kaleng">Kaleng</option>
                         <option value="Lembar">Lembar</option>
                         <option value="Pasang">Pasang</option>
+                        <option value="Sachet">Sachet</option>
                     </select>
                 </div>
                 <div class="form-group">
                     <label for="exampleInputUsername1">Kategori</label>
                     <select name="id_kategori" id="id_kategori" class="form-control">
-                        <option value="" disabled>Pilih Kategori</option>
+                        <option value="" selected disabled>==Pilih Kategori==</option>
                         @foreach ($kategori as $k)
                             <option value="{{ $k->id }}">{{ $k->id }}-{{ $k->nama_kategori }}</option>
                         @endforeach
@@ -51,19 +52,19 @@
                 </div>
                 <div class="form-group">
                     <label for="exampleInputUsername1">Stok</label>
-                    <input type="text" class="form-control" name="stok" placeholder="Masukkan Stok">
+                    <input type="text" class="form-control" name="stok" placeholder="Masukkan Stok" required>
                 </div>
                 <div class="form-group">
                     <label for="exampleInputUsername1">Total Barang</label>
-                    <input type="text" class="form-control" name="total_barang" placeholder="Masukkan Total Barang">
+                    <input type="text" class="form-control" name="total_barang" placeholder="Masukkan Total Barang" required>
                 </div>
                 <div class="form-group">
                     <label for="exampleInputUsername1">Harga Ecer</label>
-                    <input type="text" class="form-control" name="harga_ecer" placeholder="Masukkan Harga Ecer">
+                    <input type="text" class="form-control" name="harga_ecer" placeholder="Masukkan Harga Ecer" required>
                 </div>
                 <div class="form-group">
                     <label for="exampleInputUsername1">Harga Grosir</label>
-                    <input type="text" class="form-control" name="harga_grosir" placeholder="Masukkan Harga Grosir">
+                    <input type="text" class="form-control" name="harga_grosir" placeholder="Masukkan Harga Grosir" required>
                 </div>
                 <div class="text-right">
                     <button type="submit" class="btn btn-success text-right">Simpan</button>

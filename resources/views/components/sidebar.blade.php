@@ -21,16 +21,16 @@
             <span>Kelola Barang</span>
         </a>
         <div id="collapseForm" class="collapse
-        @if (request()->is('admin/warung') || request()->is('admin/warung'))
+        @if (request()->is('admin/barang') || request()->is('admin/kategori'))
         show
         @endif">
             <div class="bg-white py-2 collapse-inner rounded">
-                <a class="collapse-item{{ request()->is('admin/warung') ? ' active' : '' }}"
-                    href="{{ route('admin.warung') }}">
+                <a class="collapse-item{{ request()->is('admin/barang') ? ' active' : '' }}"
+                    href="{{ route('admin.barang') }}">
                     <i class="fas fa-piggy-bank"></i>
                     <span>Barang</span></a>
-                <a class="collapse-item{{ request()->is('admin/warung') ? ' active' : '' }}"
-                    href="{{ route('admin.warung') }}">
+                <a class="collapse-item{{ request()->is('admin/kategori') ? ' active' : '' }}"
+                    href="{{ route('admin.kategori') }}">
                     <i class="fas fa-tags"></i>
                     <span> Kategori</span></a>
             </div>
@@ -48,7 +48,7 @@
             <span>Transaksi</span>
         </a>
         <div id="collapse1" class="collapse
-        @if (request()->is('admin/warung') || request()->is('admin/warung'))
+        @if (request()->is('admin/pembelian') || request()->is('admin/pembelian'))
         show
         @endif"aria-labelledby="headingForm" data-parent="#accordionSidebar">
             <div class="collapse-inner rounded">
@@ -56,16 +56,16 @@
                     href="{{ route('admin.pembelian') }}">
                     <i class="fas fa-shopping-cart"></i>
                     <span>Pembelian</span></a>
-                <a class="collapse-item{{ request()->is('admin/warung') ? ' active' : '' }}"
-                    href="{{ route('admin.warung') }}">
+                <a class="collapse-item{{ request()->is('admin/pembelian') ? ' active' : '' }}"
+                    href="{{ route('admin.pembelian') }}">
                     <i class="fas fa-shopping-cart"></i>
                     <span>Penjualan</span></a>
                 <a class="collapse-item{{ request()->is('admin/harga') ? ' active' : '' }}"
                     href="{{ route('admin.harga') }}">
                     <i class="fas fa-money-bill"></i>
                     <span> Harga</span></a>
-                <a class="collapse-item{{ request()->is('admin/warung') ? ' active' : '' }}"
-                    href="{{ route('admin.warung') }}">
+                <a class="collapse-item{{ request()->is('admin/pembayaran') ? ' active' : '' }}"
+                    href="{{ route('admin.pembayaran') }}">
                     <i class="fas fa-cash-register"></i>
                     <span>Pembayaran</span></a>
             </div>

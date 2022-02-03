@@ -13,11 +13,6 @@
             </a>
         </x-slot>
 
-    <div class="col text-right">
-        <a href="{{ route('admin.pembelian.tambah') }}" class="btn btn-primary">Tambah</a>
-    </div>
-    <div class="table-responsive">
-
         <table class="table table-bordered table-hovered" id="table">
             <thead>
                 <tr align="center">
