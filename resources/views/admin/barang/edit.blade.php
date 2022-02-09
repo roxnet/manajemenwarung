@@ -51,19 +51,19 @@
                 </div>
                 <div class="form-group">
                     <label for="exampleInputUsername1">Stok</label>
-                    <input type="text" class="form-control" name="stok" placeholder="Masukkan Stok" value="{{ $barang->stok }}">
+                    <input type="text" class="form-control" name="stok" placeholder="Masukkan Stok" value="{{ $barang->stok }}" required>
                 </div>
                 <div class="form-group">
                     <label for="exampleInputUsername1">Total Barang</label>
-                    <input type="text" class="form-control" name="total_barang" placeholder="Masukkan Total Barang" value="{{ $barang->total_barang }}">
+                    <input type="text" class="form-control" name="total_barang" placeholder="Masukkan Total Barang" value="{{ $barang->total_barang }}" required>
                 </div>
                 <div class="form-group">
                     <label for="exampleInputUsername1">Harga Ecer</label>
-                    <input type="text" class="form-control" name="harga_ecer" placeholder="Masukkan Harga Ecer" value="{{ $barang->harga_ecer }}">
+                    <input type="text" class="form-control" name="harga_ecer" placeholder="Masukkan Harga Ecer" value="{{ $barang->harga_ecer }}" required>
                 </div>
                 <div class="form-group">
                     <label for="exampleInputUsername1">Harga Grosir</label>
-                    <input type="text" class="form-control" name="harga_grosir" placeholder="Masukkan Harga Grosir" value="{{ $barang->harga_grosir }}">
+                    <input type="text" class="form-control" name="harga_grosir" placeholder="Masukkan Harga Grosir" value="{{ $barang->harga_grosir }}" required>
                 </div>
                 <div class="text-right">
                     <button type="submit" class="btn btn-success text-right">Simpan</button>

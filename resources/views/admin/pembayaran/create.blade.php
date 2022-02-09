@@ -27,19 +27,19 @@
                 @csrf
                 <div class="form-group">
                     <label for="exampleSelect">Tanggal Bayar</label>
-                    <input type="date" class="form-control" name="tanggal_bayar">
+                    <input type="date" class="form-control" name="tanggal_bayar" required>
                 </div>
                 <div class="form-group">
                     <label for="exampleInputUsername1">Total Bayar</label>
-                    <input type="text" class="form-control" name="total_bayar" id="total_bayar" onkeyup="sum();" placeholder="Masukkan Total Bayar">
+                    <input type="text" class="form-control" name="total_bayar" id="total_bayar" onkeyup="sum();" placeholder="Masukkan Total Bayar" required>
                 </div>
                 <div class="form-group">
                     <label for="exampleInputUsername1">Total Uang</label>
-                    <input type="text" class="form-control" name="total_uang" id="total_uang" onkeyup="sum();" placeholder="Masukkan Total Uang">
+                    <input type="text" class="form-control" name="total_uang" id="total_uang" onkeyup="sum();" placeholder="Masukkan Total Uang" required>
                 </div>
                 <div class="form-group">
                     <label for="exampleInputUsername1">Uang Kembali</label>
-                    <input type="text" class="form-control" name="uang_kembali" id="uang_kembali" placeholder="Masukkan Uang Kembali">
+                    <input type="text" class="form-control" name="uang_kembali" id="uang_kembali" placeholder="Masukkan Uang Kembali" required>
                 </div>
                 <div class="text-right">
                     <button type="submit" class="btn btn-success text-right">Simpan</button>

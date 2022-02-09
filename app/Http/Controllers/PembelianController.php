@@ -22,13 +22,13 @@ class PembelianController extends Controller
         ->get();
         return view('admin.pembelian.pembelian',['pembelian'=>$pembelian]);
     }
-    
+
     public function tambah()
     {
         $barang = Barang::all();
         return view ('admin.pembelian.tambah',compact('barang'));
     }
-    
+
     public function store(Request $request)
     {
         $request->validate([
@@ -36,21 +36,21 @@ class PembelianController extends Controller
             'jml_beli' => 'required'
 
         ]);
-        
+
         Pembelian::create($request->all());
-      
+
         return redirect()->route('admin.pembelian')
                         ->with('success','Pembelian created successfully');
     }
-    
+
     public function edit($id)
     {
         $pembelian = Pembelian::find($id);
         $barang = Barang::all();
-    
+
         return view('admin.pembelian.edit',compact('pembelian','barang'));
     }
-    
+
     public function update(Request $request, $id)
     {
         $request->validate([
@@ -60,13 +60,13 @@ class PembelianController extends Controller
         ]);
         $input=$request->all();
         $pembelian = Pembelian::find($id);
-        $pembelian ->update {$input};
-      
-    
+        $pembelian ->update ($input);
+
+
         return redirect()->route('admin.pembelian')
                         ->with('success','Pembelian updated successfully');
     }
-    
+
     public function delete($id)
     {
         Pembelian::find($id)->delete();

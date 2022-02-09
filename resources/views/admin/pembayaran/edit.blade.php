@@ -27,19 +27,19 @@
                 @csrf
                 <div class="form-group">
                     <label for="exampleSelect">Tanggal Bayar</label>
-                    <input type="date" class="form-control" name="tanggal_bayar" value="{{ $pembayaran->tanggal_bayar }}">
+                    <input type="date" class="form-control" name="tanggal_bayar" value="{{ $pembayaran->tanggal_bayar }}" required>
                 </div>
                 <div class="form-group">
                     <label for="exampleInputUsername1">Total Bayar</label>
-                    <input type="text" class="form-control" name="total_bayar" id="total_bayar" onkeyup="sum();" placeholder="Masukkan Total Bayar" value="{{ $pembayaran->total_bayar }}">
+                    <input type="text" class="form-control" name="total_bayar" id="total_bayar" onkeyup="sum();" placeholder="Masukkan Total Bayar" value="{{ $pembayaran->total_bayar }}" required>
                 </div>
                 <div class="form-group">
                     <label for="exampleInputUsername1">Total Uang</label>
-                    <input type="text" class="form-control" name="total_uang" id="total_uang" onkeyup="sum();" placeholder="Masukkan Total Uang" value="{{ $pembayaran->total_uang }}">
+                    <input type="text" class="form-control" name="total_uang" id="total_uang" onkeyup="sum();" placeholder="Masukkan Total Uang" value="{{ $pembayaran->total_uang }}" required>
                 </div>
                 <div class="form-group">
                     <label for="exampleInputUsername1">Uang Kembali</label>
-                    <input type="text" class="form-control" name="uang_kembali" id="uang_kembali" placeholder="Masukkan Uang Kembali" value="{{ $pembayaran->uang_kembali }}">
+                    <input type="text" class="form-control" name="uang_kembali" id="uang_kembali" placeholder="Masukkan Uang Kembali" value="{{ $pembayaran->uang_kembali }}" required>
                 </div>
                 <div class="text-right">
                     <button type="submit" class="btn btn-success text-right">Simpan</button>

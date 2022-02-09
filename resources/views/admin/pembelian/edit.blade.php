@@ -9,7 +9,7 @@
     @if(session()->has('success'))
     <x-alert type="success" message="{{ session()->get('success') }}" />
     @endif
-    
+
     <div class="row mb-3">
 
         <div class="col text-right">
@@ -32,11 +32,11 @@
                     </div>
                     <div class="form-group">
                         <label for="InputTgl">Tanggal Beli</label>
-                        <input type="date" class="form-control" name="tanggal_beli" value="{{ $pembelian->tanggal_beli }}">
+                        <input type="date" class="form-control" name="tanggal_beli" value="{{ $pembelian->tanggal_beli }}" required>
                     </div>
                     <div class="form-group">
                         <label for="Inputjml">Jumlah Beli</label>
-                        <input type="text" class="form-control" name="jml_beli" value="{{ $pembelian->jml_beli }}">
+                        <input type="text" class="form-control" name="jml_beli" value="{{ $pembelian->jml_beli }}" required>
                     </div>
                     <div class="text-right">
                         <button type="submit" class="btn btn-success text-right">Simpan</button>
